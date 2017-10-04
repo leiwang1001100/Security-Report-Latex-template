@@ -1,0 +1,67 @@
+%---------------------------------------
+% Critical vulnerability template
+%---------------------------------------
+
+\subsection{Critical Vulnerabilities (3)}
+\begin{tcolorbox}[
+	title=MS08-067: Microsoft Windows Server Service Crafted RPC Request Handling Remote Code Execution (958644) (uncredentialed check) - Nessus Plugin ID 34477,
+	colback=red!5!white,%background color
+	colframe=red!75!black,%box frame color 
+	subtitle style={boxrule=0.4pt, colback=red!50!white}%subtitle box color	
+	] 
+	10.10.10.130 (tcp/445)
+\tcbsubtitle{Synopsis}
+The remote Windows host is affected by a remote code execution vulnerability.
+\tcbsubtitle{Description}
+The remote Windows host is affected by a remote code execution vulnerability in the 'Server' service due to improper handling of RPC requests. An unauthenticated, remote attacker can exploit this, via a specially crafted RPC request, to execute arbitrary code with `System' privileges.\\
+ECLIPSEDWING is one of multiple Equation Group vulnerabilities and exploits disclosed on 2017/04/14 by a group known as the Shadow Brokers.
+\tcbsubtitle{Solution}
+Microsoft has released a set of patches for Windows 2000, XP, 2003, Vista and 2008.
+\tcbsubtitle{See Also}
+\url{http://technet.microsoft.com/en-us/security/bulletin/ms08-067}
+\tcbsubtitle{Exploitable with}
+Metasploit (MS08-067 Microsoft Server Service Relative Path Stack Corruption) 
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title=MS09-001: Microsoft Windows SMB Vulnerabilities Remote Code Execution (958687) (uncredentialed check) - Nessus Plugin ID 35362,
+	colback=red!5!white,
+	colframe=red!75!black,
+	subtitle style={boxrule=0.4pt, colback=red!50!white}	
+	] 
+	10.10.10.130 (tcp/445)
+\tcbsubtitle{Synopsis}
+It is possible to crash the remote host due to a flaw in SMB.
+\tcbsubtitle{Description}
+The remote host is affected by a memory corruption vulnerability in SMB that may allow an attacker to execute arbitrary code or perform a denial of service against the remote host.\\
+\tcbsubtitle{Solution}
+Microsoft has released a set of patches for Windows 2000, XP, 2003, Vista and 2008.
+\tcbsubtitle{See Also}
+\url{http://www.microsoft.com/technet/security/bulletin/ms09-001.mspx}
+\tcbsubtitle{Exploitable with}
+Metasploit (Microsoft SRV.SYS WriteAndX Invalid DataOffset) 
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title=MS17-010: Security Update for Microsoft Windows SMB Server (4013389) (ETERNALBLUE) (ETERNALCHAMPION) (ETERNALROMANCE) (ETERNALSYNERGY) (WannaCry) (EternalRocks) (Petya) (uncredentialed check) - Nessus Plugin ID 97833,
+	colback=red!5!white,
+	colframe=red!75!black,
+	subtitle style={boxrule=0.4pt, colback=red!50!white}	
+	] 
+	10.10.10.130 (tcp/445)
+\tcbsubtitle{Synopsis}
+The remote Windows host is affected by multiple vulnerabilities.
+\tcbsubtitle{Description}
+The remote Windows host is affected by the following vulnerabilities :\\
+- Multiple remote code execution vulnerabilities exist in Microsoft Server Message Block 1.0 (SMBv1) due to improper handling of certain requests. An unauthenticated, remote attacker can exploit these vulnerabilities, via a specially crafted packet, to execute arbitrary code. (CVE-2017-0143, CVE-2017-0144, CVE-2017-0145, CVE-2017-0146, CVE-2017-0148)\\
+- An information disclosure vulnerability exists in Microsoft Server Message Block 1.0 (SMBv1) due to improper handling of certain requests. An unauthenticated, remote attacker can exploit this, via a specially crafted packet, to disclose sensitive information. (CVE-2017-0147)\\
+ETERNALBLUE, ETERNALCHAMPION, ETERNALROMANCE, and ETERNALSYNERGY are four of multiple Equation Group vulnerabilities and exploits disclosed on 2017/04/14 by a group known as the Shadow Brokers. WannaCry / WannaCrypt is a ransomware program utilizing the ETERNALBLUE exploit, and EternalRocks is a worm that utilizes seven Equation Group vulnerabilities. Petya is a ransomware program that first utilizes CVE-2017-0199, a vulnerability in Microsoft Office, and then spreads via ETERNALBLUE.
+\tcbsubtitle{Solution}
+Microsoft has released a set of patches for Windows 2000, XP, 2003, Vista and 2008.
+\tcbsubtitle{See Also}
+\url{https://technet.microsoft.com/library/security/MS17-010}\\
+\url{https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/}\\
+\url{https://github.com/stamparm/EternalRocks/}
+\tcbsubtitle{Exploitable with}
+Metasploit (MS17-010 EternalBlue SMB Remote Windows Kernel Pool Corruption) 
+\end{tcolorbox}

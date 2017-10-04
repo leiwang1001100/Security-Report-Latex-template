@@ -1,0 +1,48 @@
+%--------------------------
+% Medium
+%--------------------------
+
+\subsection{Medium Vulnerabilities (2)}
+\begin{tcolorbox}[
+	title=Microsoft Windows SMB NULL Session Authentication - Nessus Plugin ID 26920,
+	colback=yellow!5!white,
+	colframe=yellow!75!black,
+	subtitle style={boxrule=0.4pt, colback=yellow!50!white}	
+	] 
+	It was possible to bind to the \textbackslash browser pipe
+\tcbsubtitle{Synopsis}
+It is possible to log into the remote Windows host with a NULL session.
+\tcbsubtitle{Description}
+The remote host is running Microsoft Windows. It is possible to log into it using a NULL session (i.e., with no login or password).\\
+Depending on the configuration, it may be possible for an unauthenticated, remote attacker to leverage this issue to get information about the remote host.
+\tcbsubtitle{Solution}
+Apply the following registry changes per the referenced Technet advisories :\\
+Set :\\
+-\path{HKLM\SYSTEM\CurrentControlSet\Control\LSA\RestrictAnonymous=1}\\
+-\path{HKLM\SYSTEM\CurrentControlSet\Services\lanmanserver\parameters\restrictnullsessaccess=1}\\
+Remove BROWSER from :\\
+-\path{HKLM\SYSTEM\CurrentControlSet\Services\lanmanserver\parameters\NullSessionPipes}\\ 
+Reboot once the registry changes are complete.
+\tcbsubtitle{See Also}
+\url{http://support.microsoft.com/kb/q143474/}\\
+\url{http://technet.microsoft.com/en-us/library/cc785969(WS.10).aspx}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+	title=SMB Signing Disabled - Nessus Plugin ID 57608,
+	colback=yellow!5!white,
+	colframe=yellow!75!black,
+	subtitle style={boxrule=0.4pt, colback=yellow!50!white}	
+	] 
+	10.10.10.130 (tcp/445)
+\tcbsubtitle{Synopsis}
+Signing is not required on the remote SMB server.
+\tcbsubtitle{Description}
+Signing is not required on the remote SMB server. An unauthenticated, remote attacker can exploit this to conduct man-in-the-middle attacks against the SMB server.
+\tcbsubtitle{Solution}
+Enforce message signing in the host's configuration. On Windows, this is found in the policy setting `Microsoft network server: Digitally sign communications (always)'. On Samba, the setting is called `server signing'. See the 'see also' links for further details.
+\tcbsubtitle{See Also}
+\url{https://support.microsoft.com/en-us/kb/887429}\\
+\url{http://technet.microsoft.com/en-us/library/cc731957.aspx}\\
+\url{http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html}
+\end{tcolorbox}
